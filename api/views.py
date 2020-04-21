@@ -13,6 +13,5 @@ def static_uploads_view(filename):
 @app.route("/api/upload", methods=["POST"])
 def api_upload_view():
 	if request.method == "POST":
-		print(request.files)
+		print(request.files.get("file"))  #add .get
 	return "Hello world"
-
