@@ -17,10 +17,4 @@ def allowed_file(filename):
 	return "." in filename and \
 		filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route("/")
-def home_view():
-	return "<h1>Hello World</h1>"
-
-@app.route("/static/uploads/<filename>")
-def static_uploads_view(filename):
-	return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+from .views import *
