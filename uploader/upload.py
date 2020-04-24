@@ -4,7 +4,7 @@ import requests
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 filepath = os.path.join(BASE_DIR, 'abc.png')
 
-files = {'upload_file': open(filepath, 'rb')}
+files = {'file': open(filepath, 'rb')}
 
 url = 'http://127.0.0.1:8000/api/upload'
 
