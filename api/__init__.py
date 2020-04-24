@@ -11,6 +11,7 @@ for d in [UPLOAD_DIR, RESULTS_DIR, OUPUT_DIR]:
 	os.makedirs(d, exist_ok=True)
 
 app = Flask(__name__)
+# app.debug = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_DIR
 
 def allowed_file(filename):
