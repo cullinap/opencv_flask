@@ -11,10 +11,11 @@ def handle_file_upload(upload_file, dest_dir, dest_len=None, save=True):
 	filename = secure_filename(upload.filename)
 	_, ext = os.path.splitext(filename)
 	new_filename = filename
-	print(dest_dir)
 	if dest_len != None:
 		new_filename = f"{dest_len}{ext}"
+		print(new_filename)
 	dest_path = os.path.join(dest_dir, new_filename)
+	print(dest_path)
 	if save == True:
 		upload.save(dest_path)
 		return {"saved": True}, 201

@@ -16,12 +16,10 @@ def static_uploads_view(filename):
 def api_upload_view():
 	if request.method == "POST":
 		upload = request.files.get("file")
-		dest_dir = app.config['UPLOAD_FOLDER'] + "/"
-		print(dest_dir)
+		dest_dir = app.config['UPLOAD_FOLDER']
 		dest_len = len(os.listdir(dest_dir))
-		return handle_file_upload(upload, dest_dir, dest_len=dest_dir)
-
+		print(dest_len)
+		return handle_file_upload(upload, dest_dir, dest_len=dest_len)
 	return {"detail": "Not allowed"}, 400
-
 
 
