@@ -1,5 +1,6 @@
 import os
 from flask import Flask, send_from_directory
+from api import OUTPUT_DIR
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_DIR = os.path.join(BASE_DIR, "storage", "upload")
@@ -13,6 +14,7 @@ for d in [UPLOAD_DIR, RESULTS_DIR, OUPUT_DIR]:
 app = Flask(__name__)
 # app.debug = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_DIR
+app.config['OUTPUT_DIR'] = OUTPUT_DIR
 
 def allowed_file(filename):
 	return "." in filename and \
