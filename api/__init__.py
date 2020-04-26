@@ -14,6 +14,7 @@ app = Flask(__name__)
 # app.debug = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_DIR
 app.config['OUTPUT_DIR'] = OUTPUT_DIR
+app.config['SERVER_NAME'] = '127.0.0.1:8000'
 
 def allowed_file(filename):
 	return "." in filename and \
