@@ -2,7 +2,7 @@ import os
 from api import allowed_file
 from werkzeug.utils import secure_filename
 
-def handle_file_upload(upload_file, dest_dir, dest_len=None, save=True):
+def handle_file_upload(upload_file, dest_dir, dest_len=None, save=True, return_img_path=False):
 	upload = upload_file
 	if upload == None:
 		return {"detail": "File not found"}, 404
@@ -18,6 +18,8 @@ def handle_file_upload(upload_file, dest_dir, dest_len=None, save=True):
 	print(dest_path)
 	if save == True:
 		upload.save(dest_path)
+		if return_img_path == True:
+			return dest_path, 5211
 		return {"saved": True}, 201
 	return {"saved": False}, 200
 
